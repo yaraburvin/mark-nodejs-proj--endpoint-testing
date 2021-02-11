@@ -1,18 +1,4 @@
----
-module: mark-nodejs
-
-level: 1
-
-methods:
-  - team
-  - pair
-  - solo
-
-tags:
-  - wip
----
-
-# My Little Server
+# Endpoint testing
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
 
@@ -22,11 +8,7 @@ We're now going to run your first server and play around with a few existing **e
 
 ## Learning Outcomes
 
-- Run an Express server locally
-- Send back a JSON response in an Express route handler
-- Identify when a route handler function is executed
-- Test HTTP GET requests in the browser
-- Test HTTP GET requests in Postman
+- Load an environment variable from a `.env` file into Node
 
 ## Exercise 1: Installing and running
 
