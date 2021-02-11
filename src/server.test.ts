@@ -1,16 +1,15 @@
 import supertest from "supertest";
 import app from "./server";
+import { MYSTERIOUS_ROBED_FIGURE } from "./constants/characters";
+import { CAVE_EXTERIOR } from "./constants/locations";
 
-test("GET / responds with a welcome message", async () => {
+test("GET / responds with a welcome message from our mysterious robed figure", async () => {
   const response = await supertest(app).get("/");
 
   expect(response.body).toStrictEqual({
-    location: "Cave (exterior)",
+    location: CAVE_EXTERIOR,
     speech: {
-      speaker: {
-        description: "A robed figure holding a long, crooked staff",
-        name: "???",
-      },
+      speaker: MYSTERIOUS_ROBED_FIGURE,
       text:
         "Welcome, young adventurer, to the ENDPOINT ADVENTURE. Are you ready for this quest?",
     },
@@ -20,6 +19,21 @@ test("GET / responds with a welcome message", async () => {
       help: "/help",
     },
   });
+});
+
+test("GET /quest/accept has our mysterious robed figure give a couple of further choices", async () => {
+  const response = await supertest(app).get("/quest/accept");
+
+  // check the speaker and location are right
+  expect(response.body).toMatchObject({
+    location: CAVE_EXTERIOR,
+    speech: {
+      speaker: MYSTERIOUS_ROBED_FIGURE,
+    },
+  });
+
+  // check that there are at least two further options
+  expect(Object.keys(response.body.options).length).toBeGreaterThanOrEqual(2);
 });
 
 test("GET /quest/decline responds with an apocalyptic message", async () => {
@@ -35,6 +49,6 @@ test("GET /quest/decline responds with an apocalyptic message", async () => {
   expect(response.body.speech.text).toMatch("FOOL");
   expect(response.body.speech.text).toMatch(/mistake/i);
 
-  // includes the option to restart
-  expect(response.body.options).toMatchObject({ restart: "/" });
+  // only includes the option to restart
+  expect(response.body.options).toStrictEqual({ restart: "/" });
 });
