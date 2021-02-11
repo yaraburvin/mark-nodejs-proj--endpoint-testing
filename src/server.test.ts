@@ -29,11 +29,11 @@ test("GET /quest/decline responds with an apocalyptic message", async () => {
   expect(response.body.location).toBe("Apocalypse");
 
   // aggro speaker
-  expect(response.body.speaker.name).toBe("Titan, Destroyer of Worlds");
+  expect(response.body.speech.speaker.name).toBe("Titan, Destroyer of Worlds");
 
   // some aggro message
-  expect(response.body.speech.text).toMatch("MISTAKE");
-  expect(response.body.speech.text).toMatch(/fool/i);
+  expect(response.body.speech.text).toMatch("FOOL");
+  expect(response.body.speech.text).toMatch(/mistake/i);
 
   // includes the option to restart
   expect(response.body.options).toMatchObject({ restart: "/" });
