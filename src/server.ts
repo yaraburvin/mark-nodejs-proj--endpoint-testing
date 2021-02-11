@@ -20,6 +20,22 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/quest/accept", (req, res) => {
+  res.json({
+    location: CAVE_EXTERIOR,
+    speech: {
+      speaker: MYSTERIOUS_ROBED_FIGURE,
+      text:
+        "Ah, yes, that is a wise decision. Now, tell me, what sort of questing experience do you have?",
+    },
+    options: {
+      rookie: "/quest/start/easy",
+      pro: "/quest/start/hard",
+      "completed it, m8": "/quest/start/impossible",
+    },
+  });
+});
+
 app.get("/quest/decline", (req, res) => {
   res.json({
     location: "Apocalypse",

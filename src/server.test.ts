@@ -32,6 +32,9 @@ test("GET /quest/accept has our mysterious robed figure give a couple of further
     },
   });
 
+  // check the robed figure is saying something
+  expect(typeof response.body.speech.text).toBe("string");
+
   // check that there are at least two further options
   expect(Object.keys(response.body.options).length).toBeGreaterThanOrEqual(2);
 });
