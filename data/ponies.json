@@ -1,0 +1,29 @@
+{
+  "group": "The Mane Six",
+  "members": [
+    {
+      "name": "Princess Twilight Sparkle",
+      "species": "alicorn pony",
+      "colour": "light purple",
+      "voice": "Tara Strong",
+      "element": "Magic",
+      "cutie_mark": "six-pointed star"
+    },
+    {
+      "name": "Applejack",
+      "species": "earth pony",
+      "colour": "light orange",
+      "voice": "Ashleigh Ball",
+      "element": "Honesty",
+      "cutie_mark": "trio of apples"
+    },
+    {
+      "name": "Rainbow dash",
+      "species": "pegasus pony",
+      "colour": "light blue",
+      "voice": "Ashleigh Ball",
+      "element": "Loyalty",
+      "cutie_mark": "rainbow-coloured lightning bolt with a cloud"
+    }
+  ]
+}
