@@ -24,11 +24,38 @@ Clone/fork the repo so that you have it locally, then view the `scripts` availab
 
 ## Exercise 2: Environment variables
 
-In `index.ts` y
+> 🎯 **Success criterion:** you can view the effects of loading in your environment variables and articulate why a `.env` should not be tracked in git
+
+In `index.ts` you'll see the following code:
+
+```ts
+// load .env file contents into process.env
+dotenv.config();
+
+// use either specified port number in .env or 4000
+const PORT = process.env.PORT_NUMBER ?? 4000;
+```
+
+(The [nullish coalescing operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator) `??` happens to be used here, but that's an unimportant detail.)
+
+`.env` is a file where it is common to store 'environment variables', which you can [read about here](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786).
+
+One of the important takeaways is **adding your `.env` to `.gitignore`** (which has been done for you in this example).
+
+This is because `.env` files can contain _secrets_ which we don't want to risk exposing to the world.
+
+We've included an example `.env` file as `.env.example` - rename this to simply `.env` and restart your server (needed to load the new environment variables).
+
+You should see the two environment variables take effect in two ways:
+
+1. the specified port number will be used
+2. the specified message will be logged out on server start
+
+Because we don't typically track `.env` in source control, it is common to include a sample file (such as `.env.example`, or `sample.env`) to show somebody how their local (untracked) `.env` file should look.
 
 ## Exercise 3: Reading, understanding and documenting
 
-**Success criterion:** a document which outlines how you think this Express server works. You don't have to achieve a theory which explains 100%, but you should strive to explain as much as possible.
+> 🎯 **Success criterion:** a document which outlines how you think this Express server works. You don't have to achieve a theory which explains 100%, but you should strive to explain as much as possible.
 
 (N.B.: The _correctness_ of your theory is **much less important** than the _process_ of forming this document. [Forming a prediction, and then discovering it was wrong, is an effective way to learn](https://www.sciencedirect.com/science/article/abs/pii/S0959475217303468)!)
 
