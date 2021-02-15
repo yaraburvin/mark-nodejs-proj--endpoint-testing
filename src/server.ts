@@ -1,6 +1,9 @@
 import express from "express";
-import { MYSTERIOUS_ROBED_FIGURE } from "./constants/characters";
-import { CAVE_EXTERIOR } from "./constants/locations";
+import {
+  ADVENTURE_ADMIN,
+  MYSTERIOUS_ROBED_FIGURE,
+} from "./constants/characters";
+import { CAVE_EXTERIOR, HELPDESK } from "./constants/locations";
 
 const app = express();
 
@@ -16,6 +19,20 @@ app.get("/", (req, res) => {
       yes: "/quest/accept",
       no: "/quest/decline",
       help: "/help",
+    },
+  });
+});
+
+app.get("/help", (req, res) => {
+  res.json({
+    location: HELPDESK,
+    speech: {
+      speaker: ADVENTURE_ADMIN,
+      text:
+        "This is the endpoint adventure! It's based on the classic 'choose your own adventure' books of ye olden 20th century times. When you visit an endpoint, you're presented with a scene and some text, and then you have a few options to choose from - your simulate turning to a new page by hitting a new endpoint.",
+    },
+    options: {
+      backToStart: "/",
     },
   });
 });
