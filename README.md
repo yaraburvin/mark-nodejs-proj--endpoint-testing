@@ -22,7 +22,11 @@ Clone/fork the repo so that you have it locally, then view the `scripts` availab
 
 (The server doesn't need to be running for you to run tests - [`supertest`](https://github.com/visionmedia/supertest) is a testing library that lets us test HTTP requests.)
 
-## Exercise 2: Reading, understanding and documenting
+## Exercise 2: Environment variables
+
+In `index.ts` y
+
+## Exercise 3: Reading, understanding and documenting
 
 **Success criterion:** a document which outlines how you think this Express server works. You don't have to achieve a theory which explains 100%, but you should strive to explain as much as possible.
 
@@ -76,7 +80,7 @@ The second is using a [regular expression](https://eloquentjavascript.net/09_reg
 
 These assertions are less brittle than testing for an exact string and also more stringent _and informative_ than simply checking it is a string. They communicate something about _intent_ by giving clues as to what sort of message should be represented in the string, without being prescriptive down to punctuation and phrases.
 
-## Exercise 3: Writing and satisfying endpoint tests
+## Exercise 4: Writing and satisfying endpoint tests
 
 > 🎯 **Success criterion:** your server passes the test for `GET /quest/start/impossible`, you have a passing test written for `GET /help`, and you have used TDD with `GET /quest/start/easy` and `GET /quest/start/hard`
 
@@ -94,7 +98,7 @@ When the user accepts the quest (`GET /quest/accept`), they have three options p
 
 Write the code for the remaining two routes, using TDD - starting with the tests and then progressing to the route handlers.
 
-## Exercise 4: Further TDD endpoints
+## Exercise 5: Further TDD endpoints
 
 > 🎯 **Success criterion:** you have added at least three further endpoints using TDD with `supertest`
 
@@ -102,6 +106,6 @@ This takes us only to the start of the quest - there's no actual questing happen
 
 Let's remedy that - add at least three further endpoints using TDD.
 
-## Exercise 5: Commentary and reflection
+## Exercise 6: Commentary and reflection
 
 > 🎯 **Success criterion:** documented reflections.
