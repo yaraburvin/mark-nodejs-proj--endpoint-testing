@@ -76,9 +76,9 @@ The second is using a [regular expression](https://eloquentjavascript.net/09_reg
 
 These assertions are less brittle than testing for an exact string and also more stringent _and informative_ than simply checking it is a string. They communicate something about _intent_ by giving clues as to what sort of message should be represented in the string, without being prescriptive down to punctuation and phrases.
 
-## Exercise 3: Writing and satisfying tests
+## Exercise 3: Writing and satisfying endpoint tests
 
-> 🎯 **Success criterion:** your server passes the test for `GET /quest/start/impossible` and you have a passing test written for `GET /help`
+> 🎯 **Success criterion:** your server passes the test for `GET /quest/start/impossible`, you have a passing test written for `GET /help`, and you have used TDD with `GET /quest/start/easy` and `GET /quest/start/hard`
 
 **Pass the test for `/quest/start/impossible`**
 
@@ -88,68 +88,20 @@ There is currently a skipped test for `GET /quest/start/impossible`. Un-skip it,
 
 There is currently a handler written for `GET /help`, but no associated test. Write a sensible test (making a judgement on stringency and brittleness) for it.
 
-## Exercise 4: Writing your own Express route
+**TDD for `/quest/start/easy` and `/quest/start/hard`**
 
-> 🎯 **Success criterion:** you can visit `localhost:5050/hello-world`, `localhost:5050/ponies/random` and `localhost:5050/history` in the browser, with the expected behaviour below.
+When the user accepts the quest (`GET /quest/accept`), they have three options presented to them. Currently, just one of these has a defined test and route handler.
 
-Now, you're going to try making changes to the server - in particular, you're going to try adding some endpoints of your own.
+Write the code for the remaining two routes, using TDD - starting with the tests and then progressing to the route handlers.
 
-> ⚠️ Restart your server for changes to come into effect. Once you have started your server, any changes you make to its source code are not taken into consideration until the next time you (re)start the server. Alternatively, instead of running the server with `yarn start` (which uses `ts-node`), you can run the server with the `start:dev` script which we've added - it uses `ts-node-dev` to watch the source code and automatically restart it when there are changes.
+## Exercise 4: Further TDD endpoints
 
-### `/hello-world`
+> 🎯 **Success criterion:** you have added at least three further endpoints using TDD with `supertest`
 
-Should respond with the following JSON data:
+This takes us only to the start of the quest - there's no actual questing happening yet!
 
-```json
-{
-  "english": "Hello world!",
-  "esperanto": "Saluton mondo!",
-  "hawaiian": "Aloha Honua",
-  "turkish": "Merhaba Dünya!"
-}
-```
+Let's remedy that - add at least three further endpoints using TDD.
 
-### `/ponies/random`
+## Exercise 5: Commentary and reflection
 
-Shows a _single_ random pony from `ponies.json`. It should be possible to hit the route twice and get back two different ponies.
-
-### `/history`
-
-Shows a list of which (active) routes have been hit in chronological order.
-
-For example, if you visited the following routes after starting your server:
-
-- `/ponies`
-- `/hits`
-- `/history`
-- `/um-what-is-this`
-- `/`
-- `/history`
-
-Then the response should be something like:
-
-```js
-{
-  "routes": [
-    "/ponies",
-    "/hits",
-    "/history",
-    "/",
-    "/history"
-  ]
-}
-```
-
-(where `/um-what-is-this` is ignored, because it isn't a defined server endpoint)
-
-## Exercise 5: Check your understanding
-
-> 🎯 **Success criterion:** a conversation with a Faculty member and amended comments.
-
-Talk to a member of Faculty about your understanding of the server and of TypeScript.
-
-Amend your notes for any important points that come out of the conversation.
-
-## Exercise 6: Commentary and reflection
-
-**Success criterion:** documented reflections.
+> 🎯 **Success criterion:** documented reflections.
