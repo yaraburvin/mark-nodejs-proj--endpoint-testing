@@ -56,16 +56,14 @@ test("GET /quest/decline responds with an apocalyptic message", async () => {
   expect(response.body.options).toStrictEqual({ restart: "/" });
 });
 
-test.skip("GET /help returns some information on how to play the Endpoint Adventure", async () => {
-  const response = await supertest(app).get("/help");
+test.skip("GET /quest/start/impossible responds with instant 'death'", async () => {
+  const response = await supertest(app).get("/quest/start/impossible");
 
-  // check the speaker text has useful tidbits
-  expect(response.body.speech.text).toMatch(
-    "endpoint-based questing adventure"
-  );
-  expect(response.body.speech.text).toMatch("GET requests");
-  expect(response.body.speech.text).toMatch("example");
+  // fiery death
+  expect(response.body.speech.text).toMatch(/fireball/i);
+  expect(response.body.speech.text).toMatch(/dragon/i);
+  expect(response.body.speech.text).toMatch(/excruciating/i);
 
-  // includes option to go back to start (and possibly more)
-  expect(response.body.options).toMatchObject({ "back to start": "/" });
+  // includes option to restart
+  expect(response.body.options).toMatchObject({ restart: "/" });
 });
