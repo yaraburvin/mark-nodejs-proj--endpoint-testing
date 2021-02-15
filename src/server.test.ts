@@ -59,6 +59,12 @@ test("GET /quest/decline responds with an apocalyptic message", async () => {
 test.skip("GET /quest/start/impossible responds with instant 'death'", async () => {
   const response = await supertest(app).get("/quest/start/impossible");
 
+  // there is _some_ location
+  expect(response.body.location).toBeDefined();
+
+  // there is _some_ speaker
+  expect(response.body.speech.speaker.name).toBeDefined();
+
   // fiery death
   expect(response.body.speech.text).toMatch(/fireball/i);
   expect(response.body.speech.text).toMatch(/dragon/i);

@@ -3,7 +3,7 @@ import {
   ADVENTURE_ADMIN,
   MYSTERIOUS_ROBED_FIGURE,
 } from "./constants/characters";
-import { CAVE_EXTERIOR, HELPDESK } from "./constants/locations";
+import { CAVE_EXTERIOR, HANDFORTH_PARISH_COUNCIL } from "./constants/locations";
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 
 app.get("/help", (req, res) => {
   res.json({
-    location: HELPDESK,
+    location: HANDFORTH_PARISH_COUNCIL,
     speech: {
       speaker: ADVENTURE_ADMIN,
       text:

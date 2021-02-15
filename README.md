@@ -74,36 +74,19 @@ The second is using a [regular expression](https://eloquentjavascript.net/09_reg
 
 (The equivalent `_RegExp_` for `"FOOL"` in our first assertion would have been `/FOOL/`, with no case insensitive flag - since the string `"FOOL"` is not a case insensitive matcher.)
 
-These assertions are less brittle than testing for an exact stringl and also more stringent _and informative_ than simply checking it is a string. They communicate something about _intent_ by giving clues as to what sort of message should be represented in the string, without being prescriptive down to punctuation and phrases.
+These assertions are less brittle than testing for an exact string and also more stringent _and informative_ than simply checking it is a string. They communicate something about _intent_ by giving clues as to what sort of message should be represented in the string, without being prescriptive down to punctuation and phrases.
 
-## Exercise 3: Viewing in Postman
+## Exercise 3: Writing and satisfying tests
 
-> 🎯 **Success criterion:** you can make GET requests to all endpoints in `server.ts` via Postman
+> 🎯 **Success criterion:** your server passes the test for `GET /quest/start/impossible` and you have a passing test written for `GET /help`
 
-[Postman](https://www.postman.com/) is a commonly-used tool for supporting server endpoint development (sometimes referred to as API development).
+**Pass the test for `/quest/start/impossible`**
 
-### Downloading Postman
+There is currently a skipped test for `GET /quest/start/impossible`. Un-skip it, and write the route handler to make it pass.
 
-If you are on Windows or MacOS, you can [download the desktop app straightforwardly from the Postman website](https://www.postman.com/downloads/).
+**Write the test for `/help`**
 
-If you are on Amazon Linux (the Linux distribution used by Amazon Workspaces), you will need to:
-
-1. Install `snap` with [a (long) one-liner](https://www.bonusbits.com/wiki/HowTo:Install_Snap_on_Amazon_Linux_Workspace#One_Liner)
-2. Run `sudo snap install postman`
-
-### Sending requests with Postman
-
-Read and follow [this guide from Postman](https://learning.postman.com/docs/getting-started/sending-the-first-request/) on sending requests.
-
-Don't worry too much right now about the different types of requests - we're focusing on `GET` requests (which is why there is `app.get` all over the place in `server.ts`, to handle GET requests). (If you want to read ahead, [MDN has some good docs on HTTP request types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).)
-
-Once you've made your first `GET` request as per the Postman docs, try making `GET` requests to some of the following:
-
-- `localhost:4000`
-- `localhost:4000/hits`
-- `localhost:4000/hits-stealth`
-
-etc
+There is currently a handler written for `GET /help`, but no associated test. Write a sensible test (making a judgement on stringency and brittleness) for it.
 
 ## Exercise 4: Writing your own Express route
 
