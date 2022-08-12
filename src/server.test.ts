@@ -56,7 +56,7 @@ test("GET /quest/decline responds with an apocalyptic message", async () => {
   expect(response.body.options).toStrictEqual({ restart: "/" });
 });
 
-test.skip("GET /quest/start/impossible responds with instant 'death'", async () => {
+test("GET /quest/start/impossible responds with instant 'death'", async () => {
   const response = await supertest(app).get("/quest/start/impossible");
 
   // there is _some_ location
@@ -73,3 +73,11 @@ test.skip("GET /quest/start/impossible responds with instant 'death'", async () 
   // includes option to restart
   expect(response.body.options).toMatchObject({ restart: "/" });
 });
+
+test("GET /help provides the description of a game", async() => {
+  const response = await supertest(app).get("/help");
+  expect(response.body.location).toBeDefined();
+  expect(response.body.speech.text).toBe("This is the endpoint adventure! It's based on the classic 'choose your own adventure' books of ye olden 20th century times. When you visit an endpoint, you're presented with a scene and some text, and then you have a few options to choose from - your simulate turning to a new page by hitting a new endpoint.")
+  expect(response.body.options).toMatchObject({backToStart: "/"})
+expect(response.body.speech.text).toMatch(/adventure/i)
+})

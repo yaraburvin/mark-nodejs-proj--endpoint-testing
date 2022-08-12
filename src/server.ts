@@ -53,6 +53,41 @@ app.get("/quest/accept", (req, res) => {
   });
 });
 
+app.get("/quest/start/hard", (req, res) => {
+  res.json({
+    location: CAVE_EXTERIOR,
+    speech: {
+      speaker: MYSTERIOUS_ROBED_FIGURE,
+      text:
+        "Ah, yes, that is a wise decision. Now, tell me, what sort of questing experience do you have?",
+    },
+    options: {
+      rookie: "/quest/start/easy",
+      pro: "/quest/start/hard",
+      "completed it, m8": "/quest/start/impossible",
+    },
+  });
+});
+
+
+app.get("/quest/start/impossible", (req, res) => {
+  res.json({
+    location: CAVE_EXTERIOR,
+    speech: {
+      speaker: {
+        name : "Robert Finn",
+        placeOfbirth : "UK"
+      },
+      text:
+        "Throw a fireball into a dragon so it can feel excruciating pain",
+    },
+    options: {
+      rookie: "/quest/start/easy",
+      restart: "/"
+    },
+  });
+});
+
 app.get("/quest/decline", (req, res) => {
   res.json({
     location: "Apocalypse",
